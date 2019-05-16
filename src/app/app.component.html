@@ -1,20 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Mudanzas</h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+                  <div class="form-group">
+                      <label>No. Documento</label>
+                      <input type="text" required formControlName="numDocumento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numDocumento.errors }" />
+                      <div *ngIf="submitted && f.numDocumento.errors" class="invalid-feedback">
+                          <div *ngIf="f.numDocumento.errors.required">El documento es requerido</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <input type="file" required formControlName="archivo" class="form-control-file" [ngClass]="{ 'is-invalid': submitted && f.archivo.errors }" />
+                      <div *ngIf="submitted && f.archivo.errors" class="invalid-feedback">
+                          <div *ngIf="f.archivo.errors.required">El archivo es requerido</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>-->
 
+
+<form [formGroup]="registerForm" (ngSubmit)="procesarArchivo()" class="form-signin" style="margin-left: 40%;margin-right: 40%;margin-top: 15%;width: 300px;">
+    <img class="mb-4" src="assets/img/carga.jpg" alt width="90" height="90" class="mx-auto d-block">
+    <br/>
+    <h1 class="h3 mb-3 font-weight-normal text-center">Mudanzas</h1>
+    <div class="form-group">
+        <input type="text" placeholder="No. Documento" required formControlName="numDocumento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numDocumento.errors }" />
+        <div *ngIf="submitted && f.numDocumento.errors" class="invalid-feedback">
+            <div *ngIf="f.numDocumento.errors.required">El documento es requerido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="file" required formControlName="archivo" class="form-control-file" 
+          [ngClass]="{ 'is-invalid': submitted && f.archivo.errors }" 
+          (change)="cargarArchivo($event)"/>
+        <div *ngIf="submitted && f.archivo.errors" class="invalid-feedback">
+            <div *ngIf="f.archivo.errors.required">El archivo es requerido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-block">Procesar</button>
+    </div>
+</form>
