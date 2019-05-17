@@ -37,7 +37,7 @@ export class AppComponent  implements OnInit{
 
       this.appService.procesarArchivo(this.file).subscribe(Response => {
         debugger;
-        if (Response == 1)
+        if (Response.exitoso)
           alert('SUCCESS!!');
         else
         alert('ERROR!!');
@@ -48,8 +48,8 @@ export class AppComponent  implements OnInit{
       //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
   }
 
-  cargarArchivo(event) {
-    this.file = event.target.files[0];
+  cargarArchivo(evento: any) {
+    this.file = evento.target.files[0];
   }
   
 
