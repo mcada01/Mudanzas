@@ -32,7 +32,7 @@
     <br/>
     <h1 class="h3 mb-3 font-weight-normal text-center">Mudanzas</h1>
     <div class="form-group">
-        <input type="text" placeholder="No. Documento" required formControlName="numDocumento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numDocumento.errors }" />
+        <input type="number" maxlength="15" placeholder="No. Documento" required formControlName="numDocumento" [(ngModel)]="numDocumento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numDocumento.errors }" />
         <div *ngIf="submitted && f.numDocumento.errors" class="invalid-feedback">
             <div *ngIf="f.numDocumento.errors.required">El documento es requerido</div>
         </div>
@@ -47,5 +47,8 @@
     </div>
     <div class="form-group">
         <button class="btn btn-primary btn-block">Procesar</button>
+    </div>
+    <div>
+        <a class="text-center" [href]="fileUrl" download="ArchivoSalida.txt">Descargar Archivo Generado</a>
     </div>
 </form>
