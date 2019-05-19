@@ -1,33 +1,5 @@
-<!--<div class="jumbotron">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-6 offset-md-3">
-              <h3>Mudanzas</h3>
-              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
-                  <div class="form-group">
-                      <label>No. Documento</label>
-                      <input type="text" required formControlName="numDocumento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numDocumento.errors }" />
-                      <div *ngIf="submitted && f.numDocumento.errors" class="invalid-feedback">
-                          <div *ngIf="f.numDocumento.errors.required">El documento es requerido</div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <input type="file" required formControlName="archivo" class="form-control-file" [ngClass]="{ 'is-invalid': submitted && f.archivo.errors }" />
-                      <div *ngIf="submitted && f.archivo.errors" class="invalid-feedback">
-                          <div *ngIf="f.archivo.errors.required">El archivo es requerido</div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <button class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>-->
 
-
-<form [formGroup]="registerForm" (ngSubmit)="procesarArchivo()" class="form-signin" style="margin-left: 40%;margin-right: 40%;margin-top: 15%;width: 300px;">
+<form [formGroup]="registerForm" (ngSubmit)="procesarArchivo()" class="form-signin estilo-formulario">
     <img class="mb-4" src="assets/img/carga.jpg" alt width="90" height="90" class="mx-auto d-block">
     <br/>
     <h1 class="h3 mb-3 font-weight-normal text-center">Mudanzas</h1>
@@ -47,8 +19,5 @@
     </div>
     <div class="form-group">
         <button class="btn btn-primary btn-block">Procesar</button>
-    </div>
-    <div>
-        <a class="text-center" [href]="fileUrl" download="ArchivoSalida.txt">Descargar Archivo Generado</a>
     </div>
 </form>

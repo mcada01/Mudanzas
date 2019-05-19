@@ -8,14 +8,9 @@ export class AppService {
     }
 
     procesarArchivo(file: File, numDocumento: number){
-        let formData = new FormData();
-        formData.append('ArchivoSeleccionado', file);
-        return this.http.post(environment.apiUrl + numDocumento, formData
-        , {
-           responseType : "arraybuffer"
-          }
-          )
-        
-        }
+      let formData = new FormData();
+      formData.append('ArchivoSeleccionado', file);
+      return this.http.post(environment.apiUrl + "api/Mudanza/PostProcesarArchivo/"+ numDocumento, formData, {responseType : "arraybuffer"})
+    }
 
 }

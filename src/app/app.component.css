@@ -1,7 +1,5 @@
-/*form {
-
-    display: inline-block;
-
-    text-align: center;
-
-}*/
+.estilo-formulario {
+    margin-left: 38%;
+    margin-top: 10%;
+    width: 300px;
+}
